@@ -14,5 +14,9 @@ function WorkshopList({
         : [...previous, category]
     )
   }}
+  const filteredWorkshops = workshops.filter(
+    (workshop) =>
+      selectedCategories.includes(workshop.kategoria) &&
+      (!onlyAvailable || workshop.wolneMiejsca > 0)
+  )
 
-  
