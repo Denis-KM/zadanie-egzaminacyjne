@@ -7,8 +7,12 @@ function RegistrationForm({ workshops, setWorkshops }) {
   const [workshopId, setWorkshopId] = useState("")
 
   const handleFormSubmit = (event) => {
+    event.preventDefault()
 
-    if (participantName.trim() === "" || participantEmail.trim() === "") {
+    const trimmedName = participantName.trim()
+    const trimmedEmail = participantEmail.trim()
+
+    if (trimmedName === "" || trimmedEmail === "") {
       console.log("Błąd: Uzupełnij imię, nazwisko oraz adres e-mail.")
       return
     }
@@ -40,6 +44,15 @@ function RegistrationForm({ workshops, setWorkshops }) {
           : workshop
       )
     )
+
+    console.log(`Zapisano uczestnika: ${trimmedName} (${trimmedEmail})`)
+    console.log(
+      `Wybrany warsztat: ${selectedWorkshop.tytul} (Pozostało miejsc: ${remainingPlaces})`
+    )
+
+    setParticipantName("")
+    setParticipantEmail("")
+    setWorkshopId("")
   }
 
   return (
