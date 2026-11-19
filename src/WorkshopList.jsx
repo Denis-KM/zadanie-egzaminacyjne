@@ -13,12 +13,13 @@ function WorkshopList({
         ? previous.filter((item) => item !== category)
         : [...previous, category]
     )
-  }}
+  }
+
   const filteredWorkshops = workshops.filter(
     (workshop) =>
       selectedCategories.includes(workshop.kategoria) &&
       (!onlyAvailable || workshop.wolneMiejsca > 0)
-  )
+  );
 
  return (
     <>
@@ -68,6 +69,7 @@ function WorkshopList({
       )}
     </>
   )
+}
 
 
 export default WorkshopList

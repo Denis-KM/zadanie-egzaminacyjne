@@ -3,6 +3,8 @@ import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
+import RegistrationForm from './RegistrationForm.jsx';
+import WorkshopList from './WorkshopList.jsx';
 
 function App() {
   
@@ -14,9 +16,13 @@ function App() {
 { id: 5, tytul: "Bazy danych PostgreSQL w praktyce", kategoria: "Backend", prowadzacy: "Tomasz Wójcik", wolneMiejsca: 1 }
 ]);
 
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [onlyAvailable, setOnlyAvailable] = useState(false);
+
   return (
     <>
-      
+      <WorkshopList workshops={warsztaty} selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} onlyAvailable={onlyAvailable} setOnlyAvailable={setOnlyAvailable} />
+      <RegistrationForm workshops={warsztaty} setWorkshops={setWarsztaty} />
     </>
   )
 }
