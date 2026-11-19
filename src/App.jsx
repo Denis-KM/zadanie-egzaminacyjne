@@ -6,8 +6,13 @@ import './App.css'
 import RegistrationForm from './RegistrationForm.jsx';
 import WorkshopList from './WorkshopList.jsx';
 
+// Główny komponent aplikacji
+
 function App() {
   
+
+  // Stan przechowujący listę warsztatów
+
   const [warsztaty, setWarsztaty] = useState([
 { id: 1, tytul: "Architektura aplikacji w React", kategoria: "Frontend", prowadzacy: "Anna Kowalska", wolneMiejsca: 4 },
 { id: 2, tytul: "Bezpieczeństwo API w .NET", kategoria: "Backend", prowadzacy: "Piotr Nowak", wolneMiejsca: 2 },
@@ -16,9 +21,14 @@ function App() {
 { id: 5, tytul: "Bazy danych PostgreSQL w praktyce", kategoria: "Backend", prowadzacy: "Tomasz Wójcik", wolneMiejsca: 1 }
 ]);
 
+  // Stan przechowujący wybrane kategorie warsztatów oraz filtr dostępności
+
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [onlyAvailable, setOnlyAvailable] = useState(false);
 
+
+  // Renderowanie komponentów WorkshopList i RegistrationForm z odpowiednimi propsami
+  
   return (
     <>
       <WorkshopList workshops={warsztaty} selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} onlyAvailable={onlyAvailable} setOnlyAvailable={setOnlyAvailable} />

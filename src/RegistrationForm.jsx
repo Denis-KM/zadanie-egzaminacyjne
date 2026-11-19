@@ -1,11 +1,16 @@
 import { useState } from "react";
 
+// Formularz rejestracyjny uczestnika warsztatu
 
 function RegistrationForm({ workshops, setWorkshops }) {
+
+  // Stan przechowujący dane uczestnika oraz wybrany warsztat
+
   const [participantName, setParticipantName] = useState("")
   const [participantEmail, setParticipantEmail] = useState("")
   const [workshopId, setWorkshopId] = useState("")
 
+  // Funkcja obsługująca przesłanie formularza
   const handleFormSubmit = (event) => {
     event.preventDefault()
 
@@ -18,6 +23,8 @@ function RegistrationForm({ workshops, setWorkshops }) {
     }
 
     const idToFind = Number(workshopId)
+
+    // Sprawdzenie, czy podany numer warsztatu istnieje i czy są dostępne miejsca
 
     const selectedWorkshop = workshops.find(
       (workshop) => workshop.id === idToFind
@@ -37,6 +44,8 @@ function RegistrationForm({ workshops, setWorkshops }) {
 
     const remainingPlaces = selectedWorkshop.wolneMiejsca - 1
 
+    // Aktualizacja stanu warsztatów po zapisaniu uczestnika
+
     setWorkshops((previousWorkshops) =>
       previousWorkshops.map((workshop) =>
         workshop.id === selectedWorkshop.id
@@ -55,6 +64,8 @@ function RegistrationForm({ workshops, setWorkshops }) {
     setWorkshopId("")
   }
 
+  // Renderowanie formularza rejestracyjnego
+  
   return (
     <>
       <h2>Formularz zgłoszeniowy</h2>

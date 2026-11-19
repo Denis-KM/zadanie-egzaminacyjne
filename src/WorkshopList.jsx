@@ -1,5 +1,11 @@
 const ALL_CATEGORIES = ['Frontend', 'Backend', 'QA']
 
+// workshops = tablica objektów warsztatów, 
+// selectedCategories = tablica wybranych kategorii, 
+// setSelectedCategories = funkcja do aktualizacji wybranych kategorii, 
+// onlyAvailable = boolean określający, czy wyświetlać tylko warsztaty z wolnymi miejscami, 
+// setOnlyAvailable = funkcja do aktualizacji stanu onlyAvailable
+
 function WorkshopList({
   workshops,
   selectedCategories,
@@ -7,6 +13,9 @@ function WorkshopList({
   onlyAvailable,
   setOnlyAvailable
 }) {
+
+  // Funkcja obsługująca zmianę wybranej kategorii warsztatów
+
   const handleCategoryChange = (category) => {
     setSelectedCategories((previous) =>
       previous.includes(category)
@@ -15,11 +24,15 @@ function WorkshopList({
     )
   }
 
+  // Filtrowanie warsztatów na podstawie wybranych kategorii oraz dostępności miejsc
+
   const filteredWorkshops = workshops.filter(
     (workshop) =>
       selectedCategories.includes(workshop.kategoria) &&
       (!onlyAvailable || workshop.wolneMiejsca > 0)
   );
+
+  // Renderowanie listy warsztatów oraz formularza filtrującego
 
  return (
     <>
