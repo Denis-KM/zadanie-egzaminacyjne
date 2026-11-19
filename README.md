@@ -1,19 +1,43 @@
-# React + Vite
+# System Rejestracji na Warsztaty IT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Prosta aplikacja webowa stworzona w React (z wykorzystaniem Vite), umożliwiająca przeglądanie dostępnych warsztatów programistycznych, ich filtrowanie oraz zapisywanie uczestników na wybrane wydarzenia.
 
-Currently, two official plugins are available:
+## Funkcjonalności
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Lista warsztatów:** Wyświetla dostępne szkolenia wraz z kategorią, osobą prowadzącą oraz aktualną liczbą wolnych miejsc.
+- **Filtrowanie wyników:** Umożliwia filtrowanie warsztatów według kategorii (`Frontend`, `Backend`, `QA`) oraz zawężenie listy wyłącznie do wydarzeń z wolnymi miejscami.
+- **Formularz zgłoszeniowy:** Pozwala na zapisanie uczestnika (imię, nazwisko, adres e-mail) na wybrany warsztat po podaniu jego numeru ID.
+- **Walidacja i aktualizacja stanu:** Sprawdza poprawność danych, weryfikuje dostępność miejsc oraz automatycznie zmniejsza ich pulę po udanym zapisie (informacje zwrotne logowane są w konsoli przeglądarki).
 
-## React Compiler
+## Technologie
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React**
+- **Vite**
+- **Bootstrap**
+- **JavaScript**
 
-## Expanding the ESLint configuration
+## Struktura projektu
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `App.jsx` – główny komponent przechowujący stan listy warsztatów oraz aktywnych filtrów.
+- `WorkshopList.jsx` – komponent odpowiedzialny za wyświetlanie i filtrowanie listy szkoleń.
+- `RegistrationForm.jsx` – formularz rejestracyjny obsługujący walidację danych i aktualizację liczby wolnych miejsc.
 
+## Instalacja i uruchomienie
 
-dsadsa
+1. **Sklonuj repozytorium:**
+   ```bash
+   git clone https://github.com/Denis-KM/zadanie-egzaminacyjne.git
+   cd zadanie-egzaminacyjne
+   ```
+
+2. **Zainstaluj zależności:**
+   ```bash
+   npm install
+   ```
+
+3. **Uruchom serwer deweloperski:**
+   ```bash
+   npm run dev
+   ```
+
+4. Otwórz aplikację w przeglądarce pod adresem wskazanym w terminalu (domyślnie `http://localhost:5173`).
